@@ -1,118 +1,140 @@
-import { brandConfig, whatsappMessages } from "../config/amyg";
-import { MessageCircle, Phone, Instagram, MapPin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  brandConfig,
+  getWhatsAppLink,
+  whatsappMessages,
+} from "../config/amyg";
+import {
+  MessageCircle,
+  Phone,
+  Instagram,
+  MapPin,
+  Mail,
+  Gem,
+  BadgeCheck,
+  Truck,
+  ShieldCheck,
+  ShoppingBag,
+  Lock,
+  Sparkles,
+} from "lucide-react";
+
+const values = [
+  {
+    icon: Gem,
+    title: "Authentic Pieces",
+    text: "Every piece is carefully sourced and quality-checked. We only sell what we'd proudly wear ourselves.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Affordable Luxury",
+    text: "Looking expensive shouldn't break the bank. We bring you premium pieces at honest prices.",
+  },
+  {
+    icon: Truck,
+    title: "Nationwide Delivery",
+    text: "From Lagos to Abuja, Port Harcourt to Kano — we deliver to your doorstep anywhere in Nigeria.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure Checkout",
+    text: "A smooth cart and checkout that calculates your total automatically — pay by card or bank transfer.",
+  },
+];
+
+const steps = [
+  {
+    icon: ShoppingBag,
+    title: "Browse & Add to Cart",
+    text: "Explore the collection and add the pieces that speak to you. Your cart totals update automatically.",
+  },
+  {
+    icon: Lock,
+    title: "Secure Checkout",
+    text: "Pay your auto-calculated total by card, or transfer directly from your bank app — no stress.",
+  },
+  {
+    icon: Sparkles,
+    title: "Receive & Shine",
+    text: "Your jewellery arrives beautifully packaged, ready to wear.",
+  },
+];
 
 export function AboutPage() {
-  const whatsappLink = `https://wa.me/${brandConfig.whatsapp}?text=${encodeURIComponent(
-    whatsappMessages.general
-  )}`;
+  const whatsappLink = getWhatsAppLink(whatsappMessages.general);
 
   return (
-    <div className="pt-16 pb-20 md:pb-0">
+    <div className="pt-24 pb-20">
       {/* Hero */}
-      <section className="py-16 sm:py-20 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="w-20 h-20 rounded-full border-2 border-brand-gold flex items-center justify-center mx-auto mb-6">
-            <span className="font-serif text-brand-gold font-bold text-3xl">
+      <section className="py-12 sm:py-16 px-4 text-center">
+        <div className="max-w-2xl mx-auto animate-fade-in-up">
+          <div className="w-20 h-20 rounded-full border-2 border-brand-champagne flex items-center justify-center mx-auto mb-6 bg-brand-white">
+            <span className="font-serif text-brand-champagne font-bold text-3xl">
               {brandConfig.monogram}
             </span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-charcoal mb-4">
             Our Story
           </h1>
-          <p className="text-brand-white/70 text-base sm:text-lg leading-relaxed">
+          <p className="text-brand-mocha text-base sm:text-lg leading-relaxed">
             {brandConfig.description}
           </p>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-12 px-4 border-t border-brand-gold/10">
+      <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-white text-center mb-10">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal text-center mb-10">
             Why Choose Us
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-brand-gray border border-brand-gold/10">
-              <span className="text-3xl mb-3 block">💎</span>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Authentic Pieces
-              </h3>
-              <p className="text-sm text-brand-white/60">
-                Every piece is carefully sourced and quality-checked. We only sell what we'd proudly wear ourselves.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-brand-gray border border-brand-gold/10">
-              <span className="text-3xl mb-3 block">💰</span>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Affordable Luxury
-              </h3>
-              <p className="text-sm text-brand-white/60">
-                Looking expensive shouldn't break the bank. We bring you premium pieces at honest prices.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-brand-gray border border-brand-gold/10">
-              <span className="text-3xl mb-3 block">📦</span>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Nationwide Delivery
-              </h3>
-              <p className="text-sm text-brand-white/60">
-                From Lagos to Abuja, Port Harcourt to Kano — we deliver to your doorstep anywhere in Nigeria.
-              </p>
-            </div>
-            <div className="p-6 rounded-2xl bg-brand-gray border border-brand-gold/10">
-              <span className="text-3xl mb-3 block">💬</span>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Personal Service
-              </h3>
-              <p className="text-sm text-brand-white/60">
-                No bots, no automated responses. Chat directly with us on WhatsApp for a personal shopping experience.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {values.map((value) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={value.title}
+                  className="p-6 rounded-2xl bg-brand-white border border-brand-sand hover:border-brand-champagne/50 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center mb-4">
+                    <Icon size={22} className="text-brand-champagne" />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm text-brand-mocha leading-relaxed">
+                    {value.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Process */}
-      <section className="py-12 sm:py-16 px-4 bg-brand-gray/50 border-t border-b border-brand-gold/10">
+      <section className="py-12 sm:py-16 px-4 bg-brand-white border-y border-brand-sand">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-white mb-10">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mb-10">
             How It Works
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mb-4">
-                <span className="text-3xl">🛍️</span>
-              </div>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Browse
-              </h3>
-              <p className="text-sm text-brand-white/60 max-w-[200px]">
-                Explore our collection and find pieces that speak to you
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mb-4">
-                <span className="text-3xl">💬</span>
-              </div>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Order via WhatsApp
-              </h3>
-              <p className="text-sm text-brand-white/60 max-w-[200px]">
-                Send us a message — quick, easy, and personal
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full bg-brand-gold/10 border-2 border-brand-gold/30 flex items-center justify-center mb-4">
-                <span className="text-3xl">✨</span>
-              </div>
-              <h3 className="font-serif text-lg font-semibold text-brand-white mb-2">
-                Receive & Shine
-              </h3>
-              <p className="text-sm text-brand-white/60 max-w-[200px]">
-                Your jewelry arrives beautifully packaged, ready to wear
-              </p>
-            </div>
+            {steps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.title} className="flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-full bg-brand-cream border border-brand-champagne/30 flex items-center justify-center mb-4">
+                    <Icon size={30} className="text-brand-champagne" />
+                  </div>
+                  <h3 className="font-serif text-lg font-semibold text-brand-charcoal mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-brand-mocha max-w-[220px]">
+                    {step.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -120,7 +142,7 @@ export function AboutPage() {
       {/* Contact */}
       <section className="py-12 sm:py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-white mb-8">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mb-8">
             Get in Touch
           </h2>
           <div className="space-y-4">
@@ -128,14 +150,14 @@ export function AboutPage() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all touch-target"
+              className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-semibold rounded-full transition-colors touch-target"
             >
               <MessageCircle size={20} />
               <span>Chat on WhatsApp</span>
             </a>
             <a
               href={`tel:${brandConfig.phone.replace(/\s/g, "")}`}
-              className="flex items-center justify-center gap-3 w-full py-4 border border-brand-gold/40 hover:border-brand-gold text-brand-gold font-medium rounded-xl transition-all touch-target"
+              className="flex items-center justify-center gap-3 w-full py-4 border border-brand-champagne hover:bg-brand-champagne text-brand-champagne hover:text-brand-white font-medium rounded-full transition-colors touch-target"
             >
               <Phone size={20} />
               <span>{brandConfig.phone}</span>
@@ -144,33 +166,39 @@ export function AboutPage() {
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div className="flex flex-col items-center gap-2 p-4">
-              <MapPin size={20} className="text-brand-gold" />
-              <span className="text-sm text-brand-white/70">{brandConfig.location}</span>
+              <MapPin size={20} className="text-brand-champagne" />
+              <span className="text-sm text-brand-mocha">
+                {brandConfig.location}
+              </span>
             </div>
             <div className="flex flex-col items-center gap-2 p-4">
-              <Instagram size={20} className="text-brand-gold" />
-              <span className="text-sm text-brand-white/70">{brandConfig.instagram}</span>
+              <Instagram size={20} className="text-brand-champagne" />
+              <span className="text-sm text-brand-mocha">
+                {brandConfig.instagram}
+              </span>
             </div>
             <div className="flex flex-col items-center gap-2 p-4">
-              <Mail size={20} className="text-brand-gold" />
-              <span className="text-sm text-brand-white/70">{brandConfig.email}</span>
+              <Mail size={20} className="text-brand-champagne" />
+              <span className="text-sm text-brand-mocha">
+                {brandConfig.email}
+              </span>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-12 px-4 border-t border-brand-gold/10">
+      <section className="py-12 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-white mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-charcoal mb-4">
             Ready to Shine?
           </h2>
-          <p className="text-brand-white/60 mb-6">
-            Browse our collection and find your perfect piece today.
+          <p className="text-brand-mocha mb-6">
+            Browse the collection and find your perfect piece today.
           </p>
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-gold hover:bg-brand-gold-light text-brand-black font-semibold rounded-xl transition-all duration-200 touch-target"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-charcoal hover:bg-brand-champagne text-brand-ivory font-semibold rounded-full transition-colors touch-target"
           >
             View Collection
           </Link>

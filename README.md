@@ -1,143 +1,63 @@
-# AmyG's Exquisite Jewelleries – Digital Showroom
+# AmyG's Exquisite Jewelleries — Luxury E-Commerce Storefront
 
-A luxury mobile-first jewelry catalog built for Nigerian WhatsApp commerce.
+A light, champagne-and-ivory luxury jewellery storefront with a full shopping cart and a demo payment checkout (card or bank transfer). Built with React + Vite + Tailwind CSS v4.
 
-## 🎯 Overview
+## ✨ Features
 
-This is a premium, mobile-first jewelry e-commerce demo designed for the Nigerian market. It integrates seamlessly with WhatsApp for ordering — no complex checkout needed.
+- **Fresh redesign** — elegant light champagne/ivory theme with Playfair Display serif accents
+- **Ready-to-fill catalog** — the product list is currently empty (the new collection is being curated); the shop shows a graceful "coming soon" state until products are added
+- **Full cart system** — add to cart, quantity stepper, remove items, and persistent storage in `localStorage`
+- **Automatic totals** — subtotal, delivery fee (free above ₦150,000) and total are calculated automatically on every change
+- **Demo checkout** — pay by **card** (simulated payment with a test card form) or **bank transfer** (demo bank details, auto-generated order reference, copy buttons)
+- **No personal details collected** — this is a demo; no names, addresses, phone numbers or real card data are requested
+- WhatsApp contact button, fully responsive, sticky header with live cart badge
 
-## 🚀 Features
+## 🛍️ Adding products
 
-- **Mobile-First Design**: Optimized for Nigerian smartphones (Tecno, Infinix, etc.)
-- **WhatsApp Commerce**: All ordering happens via WhatsApp with pre-filled messages
-- **Luxury Aesthetic**: Cartier-inspired design with Lagos market accessibility
-- **Fast Performance**: Lightweight, optimized images, smooth animations
-- **Offline Resilient**: Minimal dependencies, works on spotty networks
-- **Touch Optimized**: 48px+ touch targets for easy one-handed use
+Add entries to the `products` array in `src/config/amyg.ts`:
 
-## 🛠️ Tech Stack
-
-- React 18 + TypeScript
-- React Router v6
-- Tailwind CSS v4
-- Framer Motion (animations)
-- Lucide React (icons)
-- Vite (build tool)
-
-## 📁 Project Structure
-
-```
-src/
-├── config/
-│   └── amyg.ts          # Brand & product configuration (EDIT THIS)
-├── components/
-│   ├── Header.tsx        # Navigation header
-│   └── StickyWhatsApp.tsx # Mobile sticky CTA bar
-├── pages/
-│   ├── HomePage.tsx      # Homepage with hero, products, trust badges
-│   ├── ProductDetailPage.tsx # Individual product view
-│   └── AboutPage.tsx     # Brand story & contact
-├── App.tsx               # Router setup
-├── main.tsx              # Entry point
-└── index.css             # Tailwind + custom styles
-```
-
-## 🎨 How to Customize for Next Client
-
-All content is controlled from **ONE file**: `src/config/amyg.ts`
-
-### Step 1: Update Brand Info
-```typescript
-export const brandConfig = {
-  name: "Your Brand Name",
-  shortName: "YourBrand",
-  monogram: "YB",
-  tagline: "Your Tagline Here",
-  description: "Your brand description...",
-  whatsapp: "234XXXXXXXXXX", // International format, no +
-  phone: "+234 XXX XXX XXXX",
-  instagram: "@yourhandle",
-  email: "your@email.com",
-  location: "City, Country",
-};
-```
-
-### Step 2: Add Products
-```typescript
+```ts
 export const products: Product[] = [
   {
-    id: "unique-product-id",
-    name: "Product Name",
-    price: 25000,
-    description: "Detailed product description...",
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    images: ["path/to/image.jpg"],
-    category: "Category Name",
+    id: "gold-hoop-earrings",
+    name: "Gold Hoop Earrings",
+    price: 12000,
+    description: "Classic 18k gold-plated hoops for everyday elegance.",
+    features: ["18k gold plated", "Hypoallergenic", "Gift box included"],
+    images: ["https://example.com/photo.jpg"],
+    category: "Earrings",
     inStock: true,
-    testimonial: {
-      text: "Customer review text",
-      author: "Customer Name",
-      location: "City",
-    },
   },
 ];
 ```
 
-### Step 3: Update Colors (Optional)
-Edit the `@theme` block in `src/index.css`:
-```css
-@theme {
-  --color-brand-gold: #D4AF37;  /* Change accent color */
-  --color-brand-black: #0A0A0A; /* Change background */
-}
-```
+The shop grid, product detail page, cart and checkout all pick it up automatically — no other code changes needed.
 
-### Step 4: Replace Images
-- Replace product images in the `images` array of each product
-- Replace the hero image URL in `heroImage` export
-- Recommended: WebP format, max 100KB each, 800x800px for products
+## 💳 Payment configuration
 
-## 📱 WhatsApp Integration
+`paymentConfig` in `src/config/amyg.ts` holds the demo bank details and test card. Before going live:
 
-All CTAs use `wa.me` links with pre-filled messages:
-- **General enquiry**: Opens WhatsApp with greeting message
-- **Order**: Pre-fills product name and price
-- **Enquiry**: Pre-fills product name for questions
+1. Replace the placeholder bank details with the real account.
+2. Wire up a real payment processor (e.g. Paystack or Flutterwave) for the card flow.
+3. Remove the demo notices.
 
-To test on a real phone, simply tap any WhatsApp button.
+The current checkout **simulates** payment and collects **no personal data**.
 
-## 🚢 Deployment
+## 🚀 Running locally
 
-### Deploy to Vercel
 ```bash
-npm install -g vercel
-vercel
+npm install
+npm run dev
 ```
 
-### Deploy to Netlify
-```bash
-npm run build
-# Upload the dist/ folder
-```
+Then open the printed local URL (default `http://localhost:5173`).
 
-## 📋 Deliverables Checklist
+## 🗺️ Routes
 
-- [x] Mobile-first responsive design
-- [x] WhatsApp links with correct pre-fill messages
-- [x] Touch targets ≥ 48px
-- [x] No login required — frictionless browsing
-- [x] Config file for easy rebranding
-- [x] Performance optimized (lazy loading, minimal JS)
-- [x] Nigerian Naira pricing format
-- [x] Trust badges and social proof
-
-## 📝 Notes
-
-- Product images are AI-generated placeholders. Replace with actual client photos.
-- WhatsApp number in config is a placeholder. Update with real business number.
-- Test on actual Nigerian devices (Tecno, Infinix) before going live.
-- Consider adding a service worker for offline support in production.
-
-## License
-
-© 2024 AmyG's Exquisite Jewelleries. All rights reserved.
+| Route | Page |
+| --- | --- |
+| `/` | Home — hero, collection (or coming-soon state), how it works |
+| `/products/:id` | Product detail with gallery, quantity and Add to Cart / Buy Now |
+| `/cart` | Cart with auto-calculated totals |
+| `/checkout` | Demo checkout — card or bank transfer |
+| `/about` | Our story, values and contact |

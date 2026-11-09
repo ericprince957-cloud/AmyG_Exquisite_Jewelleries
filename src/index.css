@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #0A0A0A;
-  --color-brand-gold: #D4AF37;
-  --color-brand-gold-light: #E8C84A;
-  --color-brand-gold-dark: #B8961F;
+  --color-brand-ivory: #FAF6EF;
+  --color-brand-cream: #F3ECDF;
+  --color-brand-sand: #E7DCC8;
+  --color-brand-champagne: #B08D57;
+  --color-brand-champagne-light: #C9AC78;
+  --color-brand-champagne-dark: #8C6D3F;
+  --color-brand-charcoal: #29241E;
+  --color-brand-mocha: #6B5D4E;
   --color-brand-white: #FFFFFF;
-  --color-brand-gray: #1A1A1A;
-  --color-brand-gray-light: #2A2A2A;
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
@@ -19,19 +21,20 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #F3ECDF;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
-  border-radius: 3px;
+  background: #C9AC78;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B08D57;
 }
 
-/* Gold shimmer animation */
+/* Champagne shimmer for headline accents */
 @keyframes shimmer {
   0% {
     background-position: -200% center;
@@ -41,27 +44,27 @@ html {
   }
 }
 
-.gold-shimmer {
+.champagne-shimmer {
   background: linear-gradient(
     90deg,
-    #D4AF37 0%,
-    #F5E6A3 25%,
-    #D4AF37 50%,
-    #F5E6A3 75%,
-    #D4AF37 100%
+    #8C6D3F 0%,
+    #C9AC78 25%,
+    #8C6D3F 50%,
+    #E3CFA8 75%,
+    #8C6D3F 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 5s linear infinite;
 }
 
 /* Fade in animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -70,12 +73,21 @@ html {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.7s ease-out both;
 }
 
-/* Image loading placeholder */
-.img-placeholder {
-  background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+/* Soft floating motion for decorative elements */
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float-soft {
+  animation: floatSoft 6s ease-in-out infinite;
 }
 
 /* Touch target sizing */
@@ -85,15 +97,26 @@ html {
 }
 
 /* WhatsApp button pulse */
-@keyframes pulse-gold {
+@keyframes pulse-champagne {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.35);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
   }
 }
 
-.pulse-gold {
-  animation: pulse-gold 2s infinite;
+.pulse-champagne {
+  animation: pulse-champagne 2.5s infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 1s linear infinite;
 }
