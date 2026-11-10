@@ -68,11 +68,11 @@ export function AboutPage() {
       {/* Hero */}
       <section className="py-12 sm:py-16 px-4 text-center">
         <div className="max-w-2xl mx-auto animate-fade-in-up">
-          <div className="w-20 h-20 rounded-full border-2 border-brand-champagne flex items-center justify-center mx-auto mb-6 bg-brand-white">
-            <span className="font-serif text-brand-champagne font-bold text-3xl">
-              {brandConfig.monogram}
-            </span>
-          </div>
+          <img
+            src={brandConfig.logo}
+            alt={brandConfig.name}
+            className="w-20 h-20 rounded-full object-cover border-2 border-brand-champagne mx-auto mb-6 bg-brand-white"
+          />
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-charcoal mb-4">
             Our Story
           </h1>

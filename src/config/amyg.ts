@@ -11,6 +11,7 @@ export const brandConfig = {
   name: "AmyG's Exquisite Jewelleries",
   shortName: "AmyG's",
   monogram: "AG",
+  logo: "https://i.supaimg.com/1de2246f-c5c0-49ee-90b4-e66f91808884/1396d133-d959-41d1-8135-49ae0ec2adfc.jpg",
   tagline: "Timeless Elegance, Delivered",
   description:
     "AmyG's Exquisite Jewelleries brings affordable luxury to every Nigerian woman. From stunning watches to elegant boxed sets, we curate pieces that make you shine.",

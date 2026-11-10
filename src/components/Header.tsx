@@ -21,11 +21,11 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border-2 border-brand-champagne flex items-center justify-center bg-brand-white">
-              <span className="font-serif text-brand-champagne font-bold text-lg">
-                {brandConfig.monogram}
-              </span>
-            </div>
+            <img
+              src={brandConfig.logo}
+              alt={brandConfig.name}
+              className="w-10 h-10 rounded-full object-cover border border-brand-champagne/40"
+            />
             <span className="hidden sm:block font-serif text-brand-charcoal text-sm font-medium tracking-wide">
               {brandConfig.name}
             </span>

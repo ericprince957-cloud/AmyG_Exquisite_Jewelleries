@@ -17,11 +17,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full border-2 border-brand-champagne flex items-center justify-center">
-                <span className="font-serif text-brand-champagne font-bold text-lg">
-                  {brandConfig.monogram}
-                </span>
-              </div>
+              <img
+                src={brandConfig.logo}
+                alt={brandConfig.name}
+                className="w-10 h-10 rounded-full object-cover border border-brand-champagne/40"
+              />
               <span className="font-serif text-base font-medium tracking-wide">
                 {brandConfig.name}
               </span>
