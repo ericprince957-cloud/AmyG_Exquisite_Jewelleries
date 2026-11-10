@@ -30,9 +30,10 @@ export const brandConfig = {
 // ------------------------------------------------------------
 // Product catalog
 // ------------------------------------------------------------
-// The catalog is intentionally empty right now — the new
-// collection is being curated. Add products below and they
-// will appear on the site with full cart + checkout support.
+// Six demo products are included below so the shop, cart and
+// checkout can be tested end-to-end. Replace or remove them
+// when the real collection is ready — three of the images are
+// SVG illustrations in /public/images you can swap for photos.
 
 export interface Product {
   id: string;
@@ -51,7 +52,122 @@ export interface Product {
   };
 }
 
-export const products: Product[] = [];
+export const products: Product[] = [
+  {
+    id: "aurelia-gold-watch",
+    name: "Aurelia Gold Watch",
+    price: 45000,
+    description:
+      "A statement of quiet sophistication. The Aurelia pairs a slim champagne-gold case with a mother-of-pearl dial and a soft cream leather strap — the kind of piece that quietly finishes every outfit.",
+    features: [
+      "Champagne-gold stainless steel case",
+      "Mother-of-pearl dial",
+      "Genuine leather strap",
+      "Water-resistant (3ATM)",
+      "Gift box included",
+      "1-year warranty",
+    ],
+    images: ["https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/0c/20/c7/0c20c743-397b-4b89-a8c4-6def174c6a4e/1c335166-c661-4519-98bf-3ad82b607ec8/3adf1109-2a36-4336-ae44-09042dae52b6/91d0f8b6-b638-4212-80e0-fc2c86e5b301.jpg"],
+    category: "Watches",
+    inStock: true,
+    badge: "Bestseller",
+    testimonial: {
+      text: "I wore it to a wedding and everyone kept asking where I got it. AmyG's never disappoints!",
+      author: "Adaeze",
+      location: "Lagos",
+    },
+  },
+  {
+    id: "chunky-gold-bangles",
+    name: "Chunky Gold Bangles",
+    price: 18000,
+    description:
+      "Bold, beautiful, unapologetically you. Stack all three or wear them solo — either way, they turn heads.",
+    features: [
+      "Hypoallergenic gold-plated brass",
+      "Tarnish-resistant coating",
+      "Comfortable fit for all wrist sizes",
+      "Set of 3 bangles",
+      "Gift-ready packaging",
+    ],
+    images: ["https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/0c/20/c7/0c20c743-397b-4b89-a8c4-6def174c6a4e/1c335166-c661-4519-98bf-3ad82b607ec8/55ac2d81-e1c8-4d65-a205-0a94a9060b8c/49afc52e-6e85-4034-b06b-c5e570ee018d.jpg"],
+    category: "Bangles",
+    inStock: true,
+    badge: "New",
+  },
+  {
+    id: "isadora-pearl-pendant",
+    name: "Isadora Pearl Pendant",
+    price: 25000,
+    description:
+      "One perfect pearl on a delicate gold chain. Understated elegance for office days, dinner dates and everything in between.",
+    features: [
+      "Lustrous freshwater pearl",
+      "18k gold-plated chain",
+      "Adjustable length",
+      "Tarnish-resistant finish",
+      "Gift box included",
+    ],
+    images: ["https://mistralaichatupprodswe.blob.core.windows.net/chat-images/assistant/0c/20/c7/0c20c743-397b-4b89-a8c4-6def174c6a4e/1c335166-c661-4519-98bf-3ad82b607ec8/74d4cb90-f3e6-4a06-b1a2-bfa4d09babd9/4a07c144-ae79-46ad-9750-8dd65466eff3.jpg"],
+    category: "Necklaces",
+    inStock: true,
+  },
+  {
+    id: "lumiere-hoop-earrings",
+    name: "Lumière Hoop Earrings",
+    price: 12500,
+    description:
+      "Polished gold hoops with a subtle textured shine. Light enough to wear all day, luminous enough for all night.",
+    features: [
+      "Lightweight polished hoops",
+      "Hypoallergenic posts",
+      "Secure clasp",
+      "Tarnish-resistant finish",
+    ],
+    images: ["/images/demo-hoop-earrings.svg"],
+    category: "Earrings",
+    inStock: true,
+  },
+  {
+    id: "rose-crystal-ring",
+    name: "Rosé Crystal Cocktail Ring",
+    price: 9800,
+    description:
+      "A pale-pink crystal set in a warm gold band — your new go-to for owambe Saturdays and dinner dates alike.",
+    features: [
+      "Pale pink crystal center stone",
+      "Gold-tone band",
+      "Eye-catching yet comfortable",
+      "Sizes 6–9 available",
+    ],
+    images: ["/images/demo-cocktail-ring.svg"],
+    category: "Rings",
+    inStock: true,
+  },
+  {
+    id: "bella-boxed-gift-set",
+    name: "Bella Boxed Gift Set",
+    price: 65000,
+    description:
+      "Necklace, earrings and a tennis bracelet in one cream satin gift box. The easiest yes when you want to spoil someone — including yourself.",
+    features: [
+      "3-piece matching set",
+      "Necklace, earrings & bracelet",
+      "Cream satin gift box",
+      "Tarnish-resistant finish",
+      "Ready to gift — no wrapping needed",
+    ],
+    images: ["/images/demo-gift-set.svg"],
+    category: "Gift Sets",
+    inStock: true,
+    badge: "Gift-ready",
+    testimonial: {
+      text: "Bought this for my sister's birthday and she almost cried. The packaging is so gorgeous I didn't even need wrapping paper.",
+      author: "Chiamaka",
+      location: "Abuja",
+    },
+  },
+];
 
 // ------------------------------------------------------------
 // Cart & delivery

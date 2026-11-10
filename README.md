@@ -5,7 +5,7 @@ A light, champagne-and-ivory luxury jewellery storefront with a full shopping ca
 ## ✨ Features
 
 - **Fresh redesign** — elegant light champagne/ivory theme with Playfair Display serif accents
-- **Ready-to-fill catalog** — the product list is currently empty (the new collection is being curated); the shop shows a graceful "coming soon" state until products are added
+- **Demo catalog** — six demo products are preloaded so the cart and checkout can be tested end-to-end (three with AI-generated photos, three with vector illustrations in public/images/); the shop shows a graceful "coming soon" state if the catalog is ever empty
 - **Full cart system** — add to cart, quantity stepper, remove items, and persistent storage in `localStorage`
 - **Automatic totals** — subtotal, delivery fee (free above ₦150,000) and total are calculated automatically on every change
 - **Demo checkout** — pay by **card** (simulated payment with a test card form) or **bank transfer** (demo bank details, auto-generated order reference, copy buttons)
@@ -32,6 +32,8 @@ export const products: Product[] = [
 ```
 
 The shop grid, product detail page, cart and checkout all pick it up automatically — no other code changes needed.
+
+The included products are demo entries — swap in real products (and real photos) before launch.
 
 ## 💳 Payment configuration
 
